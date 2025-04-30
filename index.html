@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Factores Financieros</title>
 </head>
 <body>
-    <h2>Calculadora de Factores Financieros</h2>
-    <form method="post">
-        Tasa de interés (%): <input type="number" step="0.01" name="interes" required><br><br>
-        Número de periodos: <input type="number" name="periodos" required><br><br>
-        <input type="submit" value="Calcular">
+    <h1>Calculadora de Factores Financieros</h1>
+    
+    <form method="POST">
+        <label for="tasa">Tasa de interés (%):</label>
+        <input type="number" id="tasa" name="tasa" value="{{ tasa or '' }}">
+        
+        <label for="periodos">Número de periodos:</label>
+        <input type="number" id="periodos" name="periodos" value="{{ periodos or '' }}">
+
+        <button type="submit">Calcular</button>
     </form>
 
     {% if resultados %}
-        <h3>Resultados:</h3>
+        <h2>Resultados:</h2>
         <ul>
             {% for clave, valor in resultados.items() %}
                 <li>{{ clave }}: {{ valor }}</li>
@@ -21,4 +28,5 @@
     {% endif %}
 </body>
 </html>
+
 
