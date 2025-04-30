@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Factores</title>
+</head>
+<body>
+    <h1>Calculadora de Factores Financieros</h1>
+    
+    <form method="POST">
+        <div>
+            <label for="tasa_interes">Tasa de interés (en porcentaje):</label>
+            <input type="text" id="tasa_interes" name="tasa_interes" required>
+        </div>
+        
+        <div>
+            <label for="num_periodos">Número de períodos:</label>
+            <input type="number" id="num_periodos" name="num_periodos" required>
+        </div>
+        
+        <div>
+            <input type="submit" value="Calcular">
+        </div>
+    </form>
+    
+    {% if resultados %}
+    <h2>Factores Calculados:</h2>
+    <ul>
+        <li><strong>F/P:</strong> {{ resultados['F/P'] }}</li>
+        <li><strong>P/F:</strong> {{ resultados['P/F'] }}</li>
+        <li><strong>F/A:</strong> {{ resultados['F/A'] }}</li>
+        <li><strong>A/F:</strong> {{ resultados['A/F'] }}</li>
+        <li><strong>P/A:</strong> {{ resultados['P/A'] }}</li>
+        <li><strong>A/P:</strong> {{ resultados['A/P'] }}</li>
+        <li><strong>F/G:</strong> {{ resultados['F/G'] }}</li>
+        <li><strong>P/G:</strong> {{ resultados['P/G'] }}</li>
+        <li><strong>A/G:</strong> {{ resultados['A/G'] }}</li>
+    </ul>
+    {% endif %}
+</body>
+</html>
+
